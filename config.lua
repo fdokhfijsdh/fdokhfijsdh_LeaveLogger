@@ -1,5 +1,5 @@
 Config = {
-    Webhook = GetConvar("anticombatlog_webhook", "FAILED TO LOAD"),
+    Webhook = GetConvar("leaveLogger_webhook", "FAILED TO LOAD"),
 
     ShowMarker = true, -- Show the marker
 

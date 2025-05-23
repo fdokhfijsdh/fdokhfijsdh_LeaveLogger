@@ -31,7 +31,7 @@ local function handleThread()
 
                 -- Remove marker if it's older than 6.5 seconds
                 if GetGameTimer() - markerUtils.timestamp > Config.DisplayTime then
-                    table.remove(markers, marker)
+                    table.remove(markers, i)
                 end
             end
 

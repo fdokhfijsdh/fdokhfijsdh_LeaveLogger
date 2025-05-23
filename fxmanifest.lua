@@ -3,7 +3,7 @@ fx_version 'cerulean'
 games { 'gta5' }
 
 --[[ Resource Information ]]--
--- name "fdokhfijsdh_LeaveLogger"
+name "fdokhfijsdh_LeaveLogger"
 author "fdokhfijsdh"
 description "enjoy logging the leave of your players :)"
 version '2.0'
