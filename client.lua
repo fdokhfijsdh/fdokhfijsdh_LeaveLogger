@@ -37,6 +37,7 @@ local function handleThread()
             -- If there are no markers left, stop the thread
             if #markers == 0 then
                 isAThreadRunning = false
+                TerminateThread(threadId)
                 break
             end
 
