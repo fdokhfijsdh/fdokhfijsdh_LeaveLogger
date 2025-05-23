@@ -1,5 +1,3 @@
-ESX = exports["es_extended"]:getSharedObject() -- new esx import
-
 local function sendDiscordWebhookMessage(message)
     PerformHttpRequest(Config.Webhook, function(err, text, headers)
         if err ~= 200 and err ~= 204 then
@@ -26,20 +24,9 @@ end
 
 AddEventHandler('playerDropped', function(reason, resourceName, clientDropReason)
     local src = source -- change global source to local variable
-    local xPlayer = ESX.GetPlayerFromId(src)
-    local playerCoords = xPlayer.getCoords(true)
-    local allPlayers = ESX.GetPlayers()
+    local playerCoords = GetEntityCoords(GetPlayerPed(src))
 
-    for _, target in ipairs(allPlayers) do
-        local xTarget = ESX.GetPlayerFromId(target)
-        if xTarget then
-            local targetCoords = xTarget.getCoords(true)
-
-            if #(playerCoords - targetCoords) < 50.0 then
-                xTarget.triggerEvent('fdokhfijsdh_LeaveLogger:generateMarker', playerCoords, xPlayer.playerId, GetPlayerName(source), reason, resourceName, clientDropReason)
-            end
-        end
-    end
+    TriggerClientEvent('fdokhfijsdh_LeaveLogger:generateMarker', -1, playerCoords, src, GetPlayerName(src), reason)
 
     sendDiscordWebhookMessage({
         embeds = {{
@@ -49,12 +36,12 @@ AddEventHandler('playerDropped', function(reason, resourceName, clientDropReason
             fields = {
                 {
                     name = "Identifier",
-                    value = xPlayer.identifier,
+                    value = GetPlayerIdentifierByType(src, "license"),
                     inline = true
                 },
                 {
                     name = "Discord",
-                    value = getDiscordID(xPlayer.playerId),
+                    value = getDiscordID(src),
                     inline = true
                 },
 
@@ -66,12 +53,12 @@ AddEventHandler('playerDropped', function(reason, resourceName, clientDropReason
 
                 {
                     name = "Name",
-                    value = GetPlayerName(xPlayer.source),
+                    value = GetPlayerName(src),
                     inline = true
                 },
                 {
                     name = "Spieler ID",
-                    value = xPlayer.playerId,
+                    value = src,
                     inline = true
                 },
 
@@ -86,7 +73,6 @@ AddEventHandler('playerDropped', function(reason, resourceName, clientDropReason
                     value = string.format("X: %.2f Y: %.2f Z: %.2f", playerCoords.x, playerCoords.y, playerCoords.z),
                     inline = false
                 },
-
                 {
                     name = "Grund",
                     value = reason,
@@ -97,6 +83,7 @@ AddEventHandler('playerDropped', function(reason, resourceName, clientDropReason
             footer = {
                 text = "AntiCombatLog"
             },
+
             timestamp = os.date('!%Y-%m-%dT%H:%M:%SZ'):gsub('%z', '') -- Entfernt das Null-Byte
         }}
     })
