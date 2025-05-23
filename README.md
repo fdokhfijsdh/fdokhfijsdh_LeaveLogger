@@ -69,4 +69,4 @@ This project is licensed under the [GNU General Public License v2.0](LICENSE)
 
 ## Credits
 
-This script was developed by me but inspired by [ms_anticombatlog](https://www.youtube.com/watch?v=WyfSbakxf9U). Credit goes to them for the original idea. I made this script because they link der discord server in the video, but you can not get it there. I don't really get why they called it anticombatlog because it is not proventing anything, but anyways. Enjoy :)
+This script was developed by me but was inspired by [ms_anticombatlog](https://www.youtube.com/watch?v=WyfSbakxf9U). Credit goes to them for the original idea. I created this script because they linked their Discord server in the video, but the script was not available there. I am not sure why they called it "anticombatlog," as it does not prevent anything, but anyways. Enjoy :)
