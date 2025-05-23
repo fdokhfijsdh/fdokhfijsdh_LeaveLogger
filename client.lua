@@ -13,7 +13,7 @@ local function draw3DText(x, y, z, msg, r, g, b, a)
     ClearDrawOrigin()
 end
 
-local function handleTread()
+local function handleThread()
     Citizen.CreateThread(function()
         threadId = GetIdOfThisThread()
 
@@ -57,6 +57,6 @@ AddEventHandler('fdokhfijsdh_LeaveLogger:generateMarker', function(coords, leave
 
     if not isAThreadRunning then
         isAThreadRunning = true
-        handleTread()
+        handleThread()
     end
 end)
