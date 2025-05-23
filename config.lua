@@ -3,7 +3,7 @@ Config = {
 
     ShowMarker = true, -- Show the marker
 
-    -- miliseconds * seconds * minutes
+    -- milliseconds * seconds * minutes
     DisplayTime = 1000 * 60 * 3, -- Time in milliseconds to display the marker
     Distance = 25.0, -- Distance to display the marker
 
