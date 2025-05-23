@@ -26,7 +26,9 @@ AddEventHandler('playerDropped', function(reason, resourceName, clientDropReason
     local src = source -- change global source to local variable
     local playerCoords = GetEntityCoords(GetPlayerPed(src))
 
-    TriggerClientEvent('fdokhfijsdh_LeaveLogger:generateMarker', -1, playerCoords, src, GetPlayerName(src), reason)
+    if Config.ShowMarker then
+        TriggerClientEvent('fdokhfijsdh_LeaveLogger:generateMarker', -1, playerCoords, src, GetPlayerName(src), reason)
+    end
 
     sendDiscordWebhookMessage({
         embeds = {{

@@ -1,5 +1,8 @@
 Config = {
     Webhook = GetConvar("anticombatlog_webhook", "FAILED TO LOAD"),
+
+    ShowMarker = true, -- Show the marker
+
     -- miliseconds * seconds * minutes
     DisplayTime = 1000 * 60 * 3, -- Time in milliseconds to display the marker
     Distance = 25.0, -- Distance to display the marker
