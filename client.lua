@@ -19,7 +19,8 @@ local function handleThread()
 
         while true do
             local playerCoords = GetEntityCoords(PlayerPedId())
-            for marker, markerUtils in ipairs(markers) do
+            for i = #markers, 1, -1 do
+                local markerUtils = markers[i]
                 local distance = #(playerCoords - markerUtils.coords)
 
                 if distance <= Config.Distance then
