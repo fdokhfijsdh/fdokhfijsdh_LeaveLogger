@@ -15,7 +15,6 @@ end
 
 local function handleTread()
     Citizen.CreateThread(function()
-        print("Thread started")
         threadId = GetIdOfThisThread()
 
         while true do
@@ -32,14 +31,12 @@ local function handleTread()
                 -- Remove marker if it's older than 6.5 seconds
                 if GetGameTimer() - markerUtils.timestamp > Config.DisplayTime then
                     table.remove(markers, marker)
-                    print("Marker removed")
                 end
             end
 
             -- If there are no markers left, stop the thread
             if #markers == 0 then
                 isAThreadRunning = false
-                print("Thread stopped")
                 break
             end
 
@@ -63,7 +60,3 @@ AddEventHandler('fdokhfijsdh_LeaveLogger:generateMarker', function(coords, leave
         handleTread()
     end
 end)
-
-RegisterCommand('testMarker', function()
-    TriggerEvent('fdokhfijsdh_LeaveLogger:generateMarker', GetEntityCoords(PlayerPedId()), 0, "Test", "Test")
-end, false)
