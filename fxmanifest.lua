@@ -3,10 +3,10 @@ fx_version 'cerulean'
 games { 'gta5' }
 
 --[[ Resource Information ]]--
--- name "fdokhfijsdh_LeaveLogger"
-author "fdokhfijsdh, but not my idea"
+name "fdokhfijsdh_LeaveLogger"
+author "fdokhfijsdh"
 description "enjoy logging the leave of your players :)"
-version '1.0'
+version '2.0'
 
 shared_script 'config.lua'
 client_script 'client.lua'
