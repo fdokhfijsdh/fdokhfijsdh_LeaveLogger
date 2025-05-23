@@ -32,7 +32,7 @@ AddEventHandler('playerDropped', function(reason, resourceName, clientDropReason
 
     sendDiscordWebhookMessage({
         embeds = {{
-            title = "AntiCombatLog",
+            title = "LeaveLogger",
             color = 16776960,
 
             fields = {
@@ -59,7 +59,7 @@ AddEventHandler('playerDropped', function(reason, resourceName, clientDropReason
                     inline = true
                 },
                 {
-                    name = "Spieler ID",
+                    name = "Player ID",
                     value = src,
                     inline = true
                 },
@@ -71,19 +71,19 @@ AddEventHandler('playerDropped', function(reason, resourceName, clientDropReason
                 },
 
                 {
-                    name = "Koordinaten",
+                    name = "Coordinates",
                     value = string.format("X: %.2f Y: %.2f Z: %.2f", playerCoords.x, playerCoords.y, playerCoords.z),
                     inline = false
                 },
                 {
-                    name = "Grund",
+                    name = "Reason",
                     value = reason,
                     inline = false
                 }
             },
 
             footer = {
-                text = "AntiCombatLog"
+                text = "LeaveLogger"
             },
 
             timestamp = os.date('!%Y-%m-%dT%H:%M:%SZ'):gsub('%z', '') -- Entfernt das Null-Byte
